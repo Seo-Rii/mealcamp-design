@@ -2,14 +2,14 @@
 
 $primary: #6b67c7;
 $secondary: #00ff00;
-$background: #ffffff;
+$surface: #eceef3;
 $on-primary: #ffffff;
 $on-surface: #000000;
 
 :root {
   --mt-primary: #{$primary};
   --mt-secondary: #{$secondary};
-  --mt-background: #{$background};
+  --mt-surface: #{$surface};
   --mt-on-primary: #{$on-primary};
   --mt-on-surface: #{$on-surface};
 

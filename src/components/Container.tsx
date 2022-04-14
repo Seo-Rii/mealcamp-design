@@ -6,6 +6,7 @@ export default styled.div`
   height: 100%;
   padding: 0;
   margin: 0;
+  background: var(--mt-surface);
 
   * {
     font-family: 'Noto Sans KR', sans-serif;
