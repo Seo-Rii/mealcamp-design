@@ -6,6 +6,7 @@
   right: 0;
   bottom: 0;
   left: 0;
+  margin: 0 !important;
 
   span {
     border-radius: 100%;
@@ -13,6 +14,7 @@
     opacity: 0;
     background-color: var(--mc-ripple-color);
     pointer-events: none;
+    margin: 0 !important;
 
     &.animate {
       animation-name: ripple;
@@ -22,6 +24,7 @@
     &.show {
       opacity: var(--mc-ripple-opacity);
     }
+
     transition: opacity 0.2s ease-out;
   }
 

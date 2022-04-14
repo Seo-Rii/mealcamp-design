@@ -17,4 +17,8 @@ export default styled.div`
     margin: 6px 0 6px 10px;
     display: inline-block;
   }
+
+  main {
+    padding: 20px;
+  }
 `

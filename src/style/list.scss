@@ -1,5 +1,4 @@
 .--mc-list {
-  padding: 20px;
 
   .--mc-list-container {
     border-radius: 10px;
@@ -14,9 +13,15 @@
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: .1;
+      opacity: .05;
       z-index: -1;
       background-color: var(--mt-on-surface);
+    }
+
+    .--mc-list-item {
+      position: relative;
+      padding: 10px;
+      overflow: hidden;
     }
   }
 }

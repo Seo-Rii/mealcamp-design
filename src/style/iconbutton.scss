@@ -1,0 +1,36 @@
+@import './common/theme.scss';
+@import './icon';
+
+$small-padding: 12px;
+$medium-padding: 16px;
+$large-padding: 20px;
+
+.--mc-iconbutton {
+  @include --mc-icon;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  background: transparent;
+
+  &.--mc-iconbutton--small {
+    font-size: 14px;
+    padding: $small-padding;
+  }
+
+  &.--mc-iconbutton--medium {
+    font-size: 20px;
+    padding: $medium-padding;
+  }
+
+  &.--mc-iconbutton--large {
+    font-size: 28px;
+    padding: $large-padding;
+  }
+
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}

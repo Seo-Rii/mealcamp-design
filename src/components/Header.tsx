@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 
 import {Button} from './Button';
 import '../style/header.scss';
-import styled from "styled-components";
+import {IconButton} from './IconButton';
 
 type User = {
     name: string;
@@ -15,7 +15,7 @@ interface HeaderProps {
     onCreateAccount?: () => void;
 }
 
-export const Header = ({user, onLogin, onLogout, onCreateAccount}: HeaderProps) => {
+export default ({user, onLogin, onLogout, onCreateAccount}: HeaderProps) => {
     const header = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -41,19 +41,7 @@ export const Header = ({user, onLogin, onLogout, onCreateAccount}: HeaderProps) 
                     <h1>MealCamp</h1>
                 </div>
                 <div>
-                    {user ? (
-                        <>
-            <span className="welcome">
-              Welcome, <b>{user.name}</b>!
-            </span>
-                            <Button size="small" onClick={onLogout} label="Log out"/>
-                        </>
-                    ) : (
-                        <>
-                            <Button size="small" onClick={onLogin} label="Log in"/>
-                            <Button primary size="small" onClick={onCreateAccount} label="Sign up"/>
-                        </>
-                    )}
+                    <IconButton icon={'notifications'}/>
                 </div>
             </div>
         </header>
