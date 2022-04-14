@@ -1,11 +1,11 @@
 import React from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 
-import {Header} from '../components/Header';
-import {viewportConfig} from "./common/config";
+import {Header} from '../../components/Header';
+import {viewportConfig} from "../common/config";
 
 export default {
-    title: 'Example/Header',
+    title: 'Component/Header',
     component: Header,
     parameters: {
         layout: 'fullscreen',

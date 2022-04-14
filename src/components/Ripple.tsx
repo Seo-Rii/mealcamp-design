@@ -3,9 +3,10 @@ import '../style/ripple.scss';
 import {className} from "../util/class";
 
 interface RippleContainerProps extends React.HTMLProps<HTMLDivElement> {
-    children: React.ReactNode,
-    duration?: number,
-    color?: string,
+    children: React.ReactNode
+    duration?: number
+    color?: string
+    opacity?: number
     innerRef?: React.Ref<HTMLDivElement>
 }
 
@@ -13,28 +14,41 @@ const RippleContainer = ({
                              children,
                              innerRef,
                              duration = 200,
-                             color = '#fff',
+                             color = 'var(--theme-on-surface)',
+                             opacity = 0.15,
                              ...props
                          }: RippleContainerProps) =>
     <div className="--mc-ripple-container"
-         style={{'--mc-ripple-duration': duration + 'ms'} as React.CSSProperties}
+         style={{
+             '--mc-ripple-duration': duration + 'ms',
+             '--mc-ripple-color': color,
+             '--mc-ripple-opacity': opacity
+         } as React.CSSProperties}
          ref={innerRef} {...props}>{children}</div>
 
 interface RippleProps {
+    primary?: boolean
     duration?: number
+    color?: string
+    opacity?: number
 }
 
-export default ({duration = 300}: RippleProps) => {
+let rippleBeginTime = 0;
+
+export default ({
+                    primary,
+                    duration = 300,
+                    color = primary ? 'var(--mt-on-primary)' : 'var(--mt-on-surface)',
+                    opacity = primary ? 0.3 : 0.15
+                }: RippleProps) => {
     const [ripplePosition, setRipplePosition] = useState({x: 0, y: 0, size: 0});
     const [rippleVisible, setRippleVisible] = useState(false);
     const [rippleAnimation, setRippleAnimation] = useState(false);
-    const [rippleBeginTime, setRippleBeginTime] = useState(0);
     const [rippleHideTimeout, setRippleHideTimeout] = useState(null as NodeJS.Timeout | null);
 
     const [touchSupport, setTouchSupport] = useState(false);
 
     const target = React.useRef<HTMLDivElement>(null);
-
 
     const rippleShowEvent = (event: React.MouseEvent | MouseEvent | TouchEvent) => {
         if (rippleVisible) return;
@@ -56,16 +70,15 @@ export default ({duration = 300}: RippleProps) => {
             size
         };
 
-        setRippleBeginTime(Date.now());
+        rippleBeginTime = Date.now();
         setRipplePosition(newRipple);
         setTimeout(() => {
-            setRippleAnimation(true)
+            setRippleAnimation(true);
             setTimeout(() => setRippleVisible(true), 0)
         }, 0);
     };
 
     const rippleHideEvent = (event: React.MouseEvent | MouseEvent | TouchEvent) => {
-        if (rippleHideTimeout) return;
         setRippleHideTimeout(setTimeout(() => setRippleVisible(false), Math.max(0, duration - (Date.now() - rippleBeginTime))));
     };
 
@@ -85,7 +98,7 @@ export default ({duration = 300}: RippleProps) => {
         }
     }, []);
 
-    return <RippleContainer duration={duration} innerRef={target}>
+    return <RippleContainer duration={duration} color={color} opacity={opacity} innerRef={target}>
         <span style={{
             left: ripplePosition.x,
             top: ripplePosition.y,

@@ -1,13 +1,17 @@
-$primary: #ff0000;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+$primary: #6b67c7;
 $secondary: #00ff00;
 $background: #ffffff;
 $on-primary: #ffffff;
+$on-surface: #000000;
 
 :root {
-  --theme-primary: #{$primary};
-  --theme-secondary: #{$secondary};
-  --theme-background: #{$background};
-  --theme-on-primary: #{$on-primary};
+  --mt-primary: #{$primary};
+  --mt-secondary: #{$secondary};
+  --mt-background: #{$background};
+  --mt-on-primary: #{$on-primary};
+  --mt-on-surface: #{$on-surface};
 
 
   --mc-ripple-color: #000000;

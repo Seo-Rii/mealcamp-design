@@ -5,7 +5,7 @@ $small-padding: 10px 16px;
 $medium-padding: 11px 20px;
 $large-padding: 12px 24px;
 
-.storybook-button {
+.--mc-button {
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
   border: 0;
@@ -14,30 +14,34 @@ $large-padding: 12px 24px;
   display: inline-block;
   line-height: 1;
 
-  &.storybook-button--primary {
+  &.--mc-button--primary {
     color: white;
-    background-color: var(--theme-primary);
+    background-color: var(--mt-primary);
   }
 
-  &.storybook-button--secondary {
+  &.--mc-button--secondary {
     color: #333;
     background-color: transparent;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
   }
 
-  &.storybook-button--small {
+  &.--mc-button--small {
     font-size: 12px;
     padding: $small-padding;
   }
 
-  &.storybook-button--medium {
+  &.--mc-button--medium {
     font-size: 14px;
     padding: $medium-padding;
   }
 
-  &.storybook-button--large {
+  &.--mc-button--large {
     font-size: 16px;
     padding: $large-padding;
+  }
+
+  &.--mc-button--raised {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
   -webkit-tap-highlight-color: transparent;
