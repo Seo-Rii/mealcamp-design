@@ -10,4 +10,11 @@ export default styled.div`
   * {
     font-family: 'Noto Sans KR', sans-serif;
   }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 6px 0 6px 10px;
+    display: inline-block;
+  }
 `

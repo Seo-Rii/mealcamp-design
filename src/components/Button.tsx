@@ -8,7 +8,7 @@ interface ButtonProps {
     backgroundColor?: string;
     size?: 'small' | 'medium' | 'large';
     label: string;
-    raised: boolean
+    raised?: boolean
     onClick?: () => void;
 }
 

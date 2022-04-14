@@ -62,8 +62,8 @@ export default ({
         const size = Math.sqrt(rippleContainer.width ** 2 + rippleContainer.height ** 2) * 2;
         const pageX = (event as MouseEvent).pageX || (event as TouchEvent).touches[0].pageX;
         const pageY = (event as MouseEvent).pageY || (event as TouchEvent).touches[0].pageY;
-        const x = pageX - rippleContainer.x - size / 2;
-        const y = pageY - rippleContainer.y - size / 2;
+        const x = pageX - rippleContainer.x - size / 2 - window.scrollX;
+        const y = pageY - rippleContainer.y - size / 2 - window.scrollY;
         const newRipple = {
             x,
             y,
