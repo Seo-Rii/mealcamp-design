@@ -1,0 +1,15 @@
+$primary: #ff0000;
+$secondary: #00ff00;
+$background: #ffffff;
+$on-primary: #ffffff;
+
+:root {
+  --theme-primary: #{$primary};
+  --theme-secondary: #{$secondary};
+  --theme-background: #{$background};
+  --theme-on-primary: #{$on-primary};
+
+
+  --mc-ripple-color: #000000;
+  --mc-ripple-duration: 0.3s;
+}

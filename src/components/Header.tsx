@@ -36,6 +36,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
         </svg>
         <h1>Acme</h1>
       </div>
+      <div className="storybook-button storybook-button--primary">dd</div>
       <div>
         {user ? (
           <>
