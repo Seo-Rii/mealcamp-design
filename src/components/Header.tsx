@@ -3,19 +3,14 @@ import React, {useEffect, useRef} from 'react';
 import {Button} from './Button';
 import '../style/header.scss';
 import {IconButton} from './IconButton';
-
-type User = {
-    name: string;
-};
+import {className} from "../util/class";
 
 interface HeaderProps {
-    user?: User;
-    onLogin?: () => void;
-    onLogout?: () => void;
-    onCreateAccount?: () => void;
+    subtitle?: string
+    back?: boolean
 }
 
-export default ({user, onLogin, onLogout, onCreateAccount}: HeaderProps) => {
+export default ({subtitle, back = false}: HeaderProps) => {
     const header = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -36,9 +31,13 @@ export default ({user, onLogin, onLogout, onCreateAccount}: HeaderProps) => {
 
     return <>
         <header ref={header}>
-            <div className="wrapper">
-                <div>
-                    <h1>MealCamp</h1>
+            <div className={className(['wrapper', subtitle && '--mc-header-dynamic'])}>
+                <div style={{display: 'flex', alignItems: 'center'}}>
+                    {back && <IconButton icon={'arrow_back'} style={{marginRight: -20}}/>}
+                    <div className="--mc-header-titlecontainer">
+                        <h1 className="--mc-header-title">MealCamp</h1>
+                        {subtitle && <h1 className="--mc-header-subtitle">{subtitle}</h1>}
+                    </div>
                 </div>
                 <div>
                     <IconButton icon={'notifications'}/>

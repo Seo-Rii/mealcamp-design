@@ -18,6 +18,13 @@ export default styled.div`
     margin: 6px 0 6px 10px;
     display: inline-block;
   }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 6px 0 6px 10px;
+    display: inline-block;
+  }
 
   main {
     padding: 20px;

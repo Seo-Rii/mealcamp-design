@@ -3,26 +3,29 @@ import Ripple from "./Ripple";
 import '../style/iconbutton.scss';
 import {className} from "../util/class";
 
-interface ButtonProps {
-    size?: 'small' | 'medium' | 'large';
+interface ButtonProps extends React.HTMLProps<HTMLDivElement> {
+    iconSize?: 'small' | 'medium' | 'large';
     icon: string;
+    superscript?: string;
     onClick?: () => void;
 }
 
 export const IconButton = ({
-                           size = 'medium',
-                           icon,
-                           ...props
-                       }: ButtonProps) => {
+                               iconSize = 'medium',
+                               icon,
+                               superscript,
+                               ...props
+                           }: ButtonProps) => {
     return (
         <button
-            type="button"
-            className={className(['--mc-iconbutton', `--mc-iconbutton--${size}`])}
-            style={{position: 'relative', overflow: 'hidden'}}
+            className={className(['--mc-iconbutton', `--mc-iconbutton--${iconSize}`])}
+            // @ts-ignore
+            type='button'
             {...props}
         >
             {icon}
-            <Ripple/>
+            {superscript && <div className={className(['--mc-iconbutton-superscript', '--mc-icon'])}>{superscript}</div>}
+            <Ripple zIndex={2}/>
         </button>
     );
 };

@@ -25,7 +25,6 @@ export const Button = ({
         <button
             type="button"
             className={className(['--mc-button', `--mc-button--${size}`, mode, raised ? '--mc-button--raised' : ''])}
-            style={{backgroundColor, position: 'relative', overflow: 'hidden'}}
             {...props}
         >
             {label}

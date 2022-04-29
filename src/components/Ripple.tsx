@@ -32,6 +32,7 @@ interface RippleProps {
     color?: string
     opacity?: number
     center?: boolean
+    zIndex?: number
 }
 
 let rippleBeginTime = 0, touchSupport = false;
@@ -42,6 +43,7 @@ export default ({
                     color = primary ? 'var(--mt-on-primary)' : 'var(--mt-on-surface)',
                     opacity = primary ? 0.3 : 0.15,
                     center = false,
+                    zIndex = 1,
                     ...props
                 }: RippleProps) => {
     const [ripplePosition, setRipplePosition] = useState({x: 0, y: 0, size: 0});
@@ -109,7 +111,8 @@ export default ({
             left: ripplePosition.x,
             top: ripplePosition.y,
             width: ripplePosition.size,
-            height: ripplePosition.size
+            height: ripplePosition.size,
+            zIndex: zIndex,
         }} className={className([rippleAnimation ? 'animate' : '', rippleVisible ? 'show' : ''])}/>
     </RippleContainer>
 }

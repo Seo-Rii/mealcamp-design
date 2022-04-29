@@ -17,3 +17,7 @@ $on-surface: #000000;
   --mc-ripple-color: #000000;
   --mc-ripple-duration: 0.3s;
 }
+
+*::-webkit-scrollbar {
+  display: none;
+}

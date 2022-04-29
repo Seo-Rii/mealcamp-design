@@ -13,6 +13,20 @@ $large-padding: 20px;
   display: inline-block;
   line-height: 1;
   background: transparent;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+
+  .--mc-iconbutton-superscript {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 12px;
+    background: var(--mt-primary);
+    border-radius: 50%;
+    color: var(--mt-on-primary);
+    padding: 2px;
+  }
 
   &.--mc-iconbutton--small {
     font-size: 14px;
